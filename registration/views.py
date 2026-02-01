@@ -9,7 +9,10 @@ from django.conf import settings
 
 from .models import WorkshopRegistration
 from .serializers import WorkshopRegistrationSerializer
+from django.http import JsonResponse
 
+def health_check(request):
+    return JsonResponse({"status": "API is live"})
 
 class RegisterStudentView(APIView):
     def post(self, request):
